@@ -10,4 +10,7 @@ const uppercase = computed(() => props.name.toUpperCase());
     Hello, {{ uppercase }}
   </div>
   <div i-carbon-bee text="5xl yellow" />
+  <a-button type="primary">
+    Primary Button
+  </a-button>
 </template>
