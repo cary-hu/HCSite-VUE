@@ -2,13 +2,14 @@
 </script>
 
 <template>
-  <Hello name="cary" />
+  <Header />
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+  <Footer />
 </template>
 
-<style>
-html {
-  background-color: #222;
-  color: white;
-  color-scheme: dark;
-}
+<style lang="less" src="./style/main.less">
 </style>
