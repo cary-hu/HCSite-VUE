@@ -1,6 +1,8 @@
 import {createApp} from 'vue';
 import App from './App.vue';
-import 'ant-design-vue/dist/antd.css';
 import 'uno.css';
+import router from './route';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
