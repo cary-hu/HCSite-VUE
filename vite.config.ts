@@ -27,6 +27,7 @@ export default defineConfig({
         'vue',
         'vue/macros',
         '@vueuse/core',
+        'vue-router',
       ],
       vueTemplate: true,
     }),

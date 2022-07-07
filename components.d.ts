@@ -7,6 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BreadCrumb: typeof import('./src/components/BreadCrumb.vue')['default']
+    BreadCurmb: typeof import('./src/components/BreadCurmb.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Footter: typeof import('./src/components/Footter.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
