@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@toast-ui/editor": "^3.1.7",
     "@vueuse/core": "^8.7.5",
+    "@ztree/ztree_v3": "^3.5.48",
+    "jquery": "^3.6.0",
     "less": "^4.1.3",
     "vue": "^3.2.25",
     "vue-router": "^4.0.16"
@@ -16,6 +19,7 @@
   "devDependencies": {
     "@caryhu/eslint-config": "^0.0.8",
     "@iconify-json/carbon": "^1.1.6",
+    "@types/node": "^18.0.3",
     "@vitejs/plugin-vue": "^2.3.3",
     "eslint": "^8.18.0",
     "typescript": "^4.5.4",

@@ -12,7 +12,6 @@
       </router-link>
     </nav>
     <div flex-auto />
-    <DarkSwitcher />
     <ThemeToggler />
   </header>
 </template>
