@@ -12,96 +12,78 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 const editor = ref();
 const getToolBarItemElement = (icon) => {
-  const button = document.createElement('i');
-  button.className = icon;
-  return button;
+  const i = document.createElement('i');
+  i.className = icon;
+  return i;
 };
 const createToolbarItems = () => {
   const toolBarItems = [];
 
   const headingToolBarItem = {
     name: 'headingButton',
-    tooltip: 'Heading',
     el: getToolBarItemElement('fa-solid fa-heading'),
     state: 'heading',
   };
   const boldToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'boldButton',
     el: getToolBarItemElement('fa-solid fa-bold'),
-    state: 'heading',
+    state: 'strong',
   };
   const italicToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'italicButton',
     el: getToolBarItemElement('fa-solid fa-italic'),
-    state: 'heading',
+    state: 'emph',
   };
   const strikeToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'strikeButton',
     el: getToolBarItemElement('fa-solid fa-strikethrough'),
-    state: 'heading',
+    state: 'strike',
   };
-  const hyphenToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+  const lineToolBarItem = {
+    name: 'lineButton',
     el: getToolBarItemElement('fa-solid fa-minus'),
-    state: 'heading',
+    state: 'thematicBreak',
   };
   const codeBlockToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
-    el: getToolBarItemElement('fa-solid fa-brackets-curly'),
-    state: 'heading',
-  };
-  const imageToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
-    el: getToolBarItemElement('fa-solid fa-image'),
-    state: 'heading',
+    name: 'codeBlockButton',
+    el: getToolBarItemElement('fa-solid fa-bars-staggered'),
+    state: 'codeBlock',
   };
   const tableToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'tableButton',
     el: getToolBarItemElement('fa-solid fa-table'),
-    state: 'heading',
+    state: 'table',
   };
   const orderedListToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'orderedListButton',
     el: getToolBarItemElement('fa-solid fa-list-ol'),
-    state: 'heading',
+    state: 'orderedList',
   };
   const listToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'listButton',
     el: getToolBarItemElement('fa-solid fa-list'),
-    state: 'heading',
+    state: 'bulletList',
   };
 
   const quoteToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'quoteButton',
     el: getToolBarItemElement('fa-solid fa-quote-left'),
-    state: 'heading',
+    state: 'blockQuote',
   };
   const linkToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'linkButton',
     el: getToolBarItemElement('fa-solid fa-link'),
     state: 'heading',
   };
   const codeToolBarItem = {
-    name: 'headingButton',
-    tooltip: 'Heading',
+    name: 'codeButton',
     el: getToolBarItemElement('fa-solid fa-code'),
-    state: 'heading',
+    state: 'code',
   };
   toolBarItems.push([headingToolBarItem, boldToolBarItem, italicToolBarItem, strikeToolBarItem]);
-  toolBarItems.push([hyphenToolBarItem, quoteToolBarItem]);
+  toolBarItems.push([lineToolBarItem, quoteToolBarItem]);
   toolBarItems.push([listToolBarItem, orderedListToolBarItem]);
-  toolBarItems.push([tableToolBarItem, imageToolBarItem, linkToolBarItem]);
+  toolBarItems.push([tableToolBarItem, linkToolBarItem]);
   toolBarItems.push([codeToolBarItem, codeBlockToolBarItem]);
   return toolBarItems;
 };
@@ -165,8 +147,29 @@ onMounted(() => {
   }
 }
 
-.toastui-editor-defaultUI-toolbar {
-  background-color: var(--background);
+.toastui-editor-toolbar {
+  height: 30px;
+
+  .toastui-editor-defaultUI-toolbar {
+    height: 30px;
+    padding: 0 10px;
+    background-color: var(--background);
+
+    .toastui-editor-toolbar-item-wrapper {
+      margin: 0px 5px;
+      height: 30px;
+
+      i {
+        font-size: 1.25em;
+        display: inline-block;
+        color: var(--foreground);
+        cursor: pointer;
+      }
+    }
+    .toastui-editor-toolbar-divider {
+      margin: 6px 12px;
+    }
+  }
 }
 
 .toastui-editor-mode-switch {
@@ -213,11 +216,6 @@ onMounted(() => {
   em,
   a,
   img {
-    color: var(--foreground);
-  }
-}
-.toastui-editor-toolbar-item-wrapper {
-  i {
     color: var(--foreground);
   }
 }
