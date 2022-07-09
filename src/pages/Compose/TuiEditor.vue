@@ -11,23 +11,116 @@ const props = defineProps({
 });
 const emit = defineEmits(['update:modelValue']);
 const editor = ref();
+const getToolBarItemElement = (icon) => {
+  const button = document.createElement('i');
+  button.className = icon;
+  return button;
+};
+const createToolbarItems = () => {
+  const toolBarItems = [];
+
+  const headingToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-heading'),
+    state: 'heading',
+  };
+  const boldToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-bold'),
+    state: 'heading',
+  };
+  const italicToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-italic'),
+    state: 'heading',
+  };
+  const strikeToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-strikethrough'),
+    state: 'heading',
+  };
+  const hyphenToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-minus'),
+    state: 'heading',
+  };
+  const codeBlockToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-brackets-curly'),
+    state: 'heading',
+  };
+  const imageToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-image'),
+    state: 'heading',
+  };
+  const tableToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-table'),
+    state: 'heading',
+  };
+  const orderedListToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-list-ol'),
+    state: 'heading',
+  };
+  const listToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-list'),
+    state: 'heading',
+  };
+
+  const quoteToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-quote-left'),
+    state: 'heading',
+  };
+  const linkToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-link'),
+    state: 'heading',
+  };
+  const codeToolBarItem = {
+    name: 'headingButton',
+    tooltip: 'Heading',
+    el: getToolBarItemElement('fa-solid fa-code'),
+    state: 'heading',
+  };
+  toolBarItems.push([headingToolBarItem, boldToolBarItem, italicToolBarItem, strikeToolBarItem]);
+  toolBarItems.push([hyphenToolBarItem, quoteToolBarItem]);
+  toolBarItems.push([listToolBarItem, orderedListToolBarItem]);
+  toolBarItems.push([tableToolBarItem, imageToolBarItem, linkToolBarItem]);
+  toolBarItems.push([codeToolBarItem, codeBlockToolBarItem]);
+  return toolBarItems;
+};
 onMounted(() => {
   const e = new Editor({
     el: editor.value,
-    height: '500px',
+    height: '100%',
     initialEditType: 'markdown',
     previewStyle: 'vertical',
     events: {
       change: () => emit('update:modelValue', e.getMarkdown()),
     },
+    toolbarItems: createToolbarItems(),
   });
 });
 </script>
 
 <template>
-  <div>
-    <div ref="editor" />
-  </div>
+  <div ref="editor" />
 </template>
 
 <style lang="less">
@@ -38,6 +131,7 @@ onMounted(() => {
 
 .ProseMirror {
   color: var(--foreground);
+  height: 100%;
 
   div,
   span,
@@ -83,6 +177,7 @@ onMounted(() => {
     color: var(--foreground);
 
     &.active {
+      cursor: default;
       color: var(--foreground-light);
       background-color: var(--background);
     }
@@ -121,4 +216,13 @@ onMounted(() => {
     color: var(--foreground);
   }
 }
+.toastui-editor-toolbar-item-wrapper {
+  i {
+    color: var(--foreground);
+  }
+}
+</style>
+
+<style lang="less" scope>
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css";
 </style>
