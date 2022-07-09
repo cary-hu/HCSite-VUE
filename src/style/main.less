@@ -1,3 +1,4 @@
+@import "./animations/fade.less";
 :root {
     --background: #fff;
     --foreground: #000;
@@ -19,15 +20,13 @@ html {
         --foreground: #fff;
       }
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+main {
+  position: relative;
+  height: calc(100vh - 50px);
+  width: 100%;
+  overflow: hidden;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
 a {
   color: inherit;
     text-decoration: none;

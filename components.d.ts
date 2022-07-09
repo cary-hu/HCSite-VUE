@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Footter: typeof import('./src/components/Footter.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     Hello: typeof import('./src/components/Hello.vue')['default']
+    Loading: typeof import('./src/components/Loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeToggle: typeof import('./src/components/ThemeToggle/ThemeToggler.vue')['default']
