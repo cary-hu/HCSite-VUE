@@ -8,10 +8,10 @@ const simpleData = [
   {id: 12, pid: 1, name: '随意勾选 1-2', open: true},
   {id: 121, pid: 12, name: '随意勾选 1-2-1'},
   {id: 122, pid: 12, name: '随意勾选 1-2-2'},
-  {id: 2, pid: 0, name: '随意勾选 2', checked: true, open: true},
+  {id: 2, pid: 0, name: '随意勾选 2', open: true},
   {id: 21, pid: 2, name: '随意勾选 2-1'},
   {id: 22, pid: 2, name: '随意勾选 2-2', open: true},
-  {id: 221, pid: 22, name: '随意勾选 2-2-1', checked: true},
+  {id: 221, pid: 22, name: '随意勾选 2-2-1'},
   {id: 222, pid: 22, name: '随意勾选 2-2-2'},
   {id: 23, pid: 2, name: '随意勾选 2-3'},
 ];
@@ -27,13 +27,23 @@ const setting = {
   },
   view: {
     showIcon: false,
+    dblClickExpand: false,
+    selectedMulti: false,
+    showTitle: false,
+  },
+  callback: {
+    beforeDblClick: (treeId, treeNode) => {
+      return false;
+    },
+    beforeClick: (treeId, treeNode) => {
+      return treeNode.pid !== null;
+    },
+    onRightClick: (event, treeId, treeNode) => {
+    },
   },
 };
 </script>
 
 <template>
-  <div>
-    Tree
-  </div>
   <ZTree :nodes="simpleData" :setting="setting" />
 </template>
