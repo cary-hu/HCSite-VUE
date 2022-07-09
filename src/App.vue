@@ -3,11 +3,13 @@
 
 <template>
   <Header />
-  <router-view v-slot="{ Component }">
-    <transition name="fade">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <main>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </main>
 </template>
 
 <style lang="less" src="./style/main.less">
